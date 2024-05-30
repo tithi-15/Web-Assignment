@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendations</title>
+
+    <style>
+      .recommendations {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .recommendation {
+        width: calc(33.33% - 20px);
+        margin: 10px;
+        background-color: #eee;
+        padding: 20px;
+      }
+
+      .recommendation h3 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .recommendation p {
+        font-size: 16px;
+      }
+
+      .add-recommendation-button {
+        background: #0073e6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    /* Internal CSS for the Add Recommendation Pop-up */
+    .add-recommendation-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .add-recommendation-popup-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /* Additional CSS for the "Close" button in the Add Recommendation Pop-up */
+    .close-button {
+        background: #0073e6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    #home-icon {
+        max-width: 30px;
+        height: auto;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <h1 style="color: blueviolet;">Recommendations</h1>
+    <section class="recommendations">
+      <div class="recommendation">
+        <h3>Online Learning Resources:</h3>
+        <p>
+          Explore platforms like Coursera, edX, and Udacity to take IT-related
+          courses and certifications to enhance your skills.
+        </p>
+      </div>
+      <div class="recommendation">
+        <h3>Technical Books:</h3>
+        <p>
+          Read books like "The Phoenix Project" by Gene Kim, Kevin Behr, and
+          George Spafford, which offers insights into DevOps practices.
+        </p>
+      </div>
+      <div class="recommendation">
+        <h3>Open Source Projects:</h3>
+        <p>
+          Contribute to open-source software projects on platforms like GitHub
+          to gain practical experience and build your portfolio.
+        </p>
+      </div>
+    </section>
+
+        <!-- Task 7: Add New Recommendation Button -->
+    <button class="add-recommendation-button" onclick="addNewRecommendation()">Add New Recommendation</button>
+
+    <div class="add-recommendation-popup" id="add-recommendation-popup">
+        <div class="add-recommendation-popup-content">
+            <h2>Add New Recommendation</h2>
+            <form id="recommendation-form">
+                <textarea id="recommendation-text" rows="4" cols="50" placeholder="Enter your recommendation text here"></textarea><br>
+                <button class="close-button" onclick="closeAddRecommendationPopup()">Close</button>
+                <button type="submit" class="add-recommendation-button" id="submit-recommendation-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Task 7: Add New Recommendation -->
+    <script>
+        function addNewRecommendation() {
+            var recommendations = document.querySelector('.recommendations');
+            var newRecommendation = document.createElement('div');
+            newRecommendation.className = 'recommendation';
+            newRecommendation.innerHTML = `
+                <h3>New Recommendation</h3>
+                <p>This is a new recommendation.</p>
+            `;
+            recommendations.appendChild(newRecommendation);
+        }
+    </script>
+    <script>
+        // JavaScript for Opening Add Recommendation Pop-up
+        var addRecommendationButton = document.getElementById('add-recommendation-button');
+        var addRecommendationPopup = document.getElementById('add-recommendation-popup');
+
+        addRecommendationButton.addEventListener('click', function () {
+            addRecommendationPopup.style.display = 'flex';
+        });
+
+        // JavaScript for Closing Add Recommendation Pop-up
+        function closeAddRecommendationPopup() {
+            addRecommendationPopup.style.display = 'none';
+        }
+
+        // JavaScript for Handling Recommendation Submission
+        var recommendationForm = document.getElementById('recommendation-form');
+        var submitRecommendationButton = document.getElementById('submit-recommendation-button');
+
+        recommendationForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Here, you can handle the submission of the recommendation.
+            // You can capture the recommendation text using the "recommendation-text" textarea.
+            // For Task 9: Show the confirmation pop-up here.
+        });
+    </script>
+    <a href="myWebpage.html">
+    <img id="home-icon" src="honeicon.png" alt="Home Icon">
+  </body>
+</html>
